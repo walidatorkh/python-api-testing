@@ -26,4 +26,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: pytest -v
+      env: 
+        BASE_URL: ${{secrets.BASE_URL}}
+        USERS_API_URL: ${{secrets.USERS_API_URL}}
       
