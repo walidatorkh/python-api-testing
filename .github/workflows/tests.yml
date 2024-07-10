@@ -28,5 +28,5 @@ jobs:
       run: pytest -v
       env: 
         BASE_URL: ${{secrets.BASE_URL}}
-        USERS_API_URL: ${{secrets.USERS_API_URL}}
+        USER_API_URL: ${{secrets.USER_API_URL}}
       
