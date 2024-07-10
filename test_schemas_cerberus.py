@@ -2,7 +2,7 @@ import requests
 from assertpy import assert_that
 from colorama import init, Fore
 from cerberus import Validator
-from configurations import base_url
+from configurations import base_url, users_api_url
 
 # Initialize colorama
 init()
@@ -68,7 +68,7 @@ def test_get_user_schema_validation():
         }
     }
     validator = Validator(schema, require_all=True)
-    response = requests.get(f"https://reqres.in/api/users/2")
+    response = requests.get(f"{users_api_url}/2")
     if response.status_code == 200:
         is_valid = validator.validate(response.json())
         assert_that(is_valid, description=validator.errors).is_true()

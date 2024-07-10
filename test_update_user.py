@@ -1,7 +1,7 @@
 import requests
 from assertpy import assert_that
 from colorama import init, Fore
-from configurations import base_url
+from configurations import users_api_url
 
 
 def test_update_user_with_put():
@@ -10,7 +10,7 @@ def test_update_user_with_put():
         "name": name
     }
     response = requests.put(
-        f"{base_url}/api/users/2",
+        f"{users_api_url}/2",
         json=update_user_data
     )
     json_response = response.json()
@@ -28,7 +28,7 @@ def test_update_user_with_patch():
         "job": job
     }
     response = requests.patch(
-        f"{base_url}/api/users/2",
+        f"{users_api_url}/2",
         json=update_user_data
     )
     json_response = response.json()

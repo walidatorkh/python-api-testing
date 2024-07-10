@@ -1,7 +1,7 @@
 import requests
 from assertpy import assert_that
 from colorama import init, Fore
-from configurations import base_url
+from configurations import users_api_url
 
 # Initialize colorama
 init()
@@ -21,7 +21,7 @@ def test_user_creation():
     print(Fore.LIGHTCYAN_EX + f"creation_user_data: {creation_user_data}")
     
     response = requests.post(
-        url=f"{base_url}/api/users",
+        url=f"{users_api_url}",
         json=creation_user_data
     )
     

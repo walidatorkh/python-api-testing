@@ -1,7 +1,7 @@
 import requests
 from assertpy import assert_that
 from colorama import init, Fore
-from configurations import base_url, users_api_url
+from configurations import users_api_url
 
 # Initialize colorama
 init()
