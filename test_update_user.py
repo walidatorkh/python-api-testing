@@ -2,8 +2,11 @@ import requests
 from assertpy import assert_that
 from colorama import init, Fore
 from configurations import users_api_url
+import pytest
 
 
+@pytest.mark.regression()
+@pytest.mark.sanity()
 def test_update_user_with_put():
     name = 'Vasya'
     update_user_data = {
@@ -20,6 +23,7 @@ def test_update_user_with_put():
     assert_that(json_response["name"]).is_equal_to(name)
 
 
+@pytest.mark.regression()
 def test_update_user_with_patch():
     name = 'Petro'
     job = 'traktorist'

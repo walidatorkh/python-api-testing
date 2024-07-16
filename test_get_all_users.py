@@ -1,3 +1,4 @@
+import pytest
 import requests
 from assertpy import assert_that
 from colorama import init, Fore
@@ -16,6 +17,8 @@ print(Fore.LIGHTMAGENTA_EX + f"total_pages" in json_response.keys())
 print(Fore.MAGENTA + f"total_pagesssss" in json_response.keys())
 
 
+# example of Sanity test execution: pytest -m sanity
+@pytest.mark.sanity()
 def test_get_all_users_status_code():
     response = requests.get(f"{users_api_url}", params={"page": "2"})
     json_response = response.json()
@@ -26,6 +29,7 @@ def test_get_all_users_status_code():
     print(response.ok)
 
 
+@pytest.mark.sanity()
 def test_get_all_users_existing_keys():
     response = requests.get(f"{users_api_url}", params={"page": "2"})
     json_response = response.json()

@@ -3,10 +3,10 @@ from assertpy import assert_that
 from configurations import users_api_url
 import pytest
 
-#https://reqres.in/api/users
-#id	1
-#email	"george.bluth@reqres.in"
-#first_name	"George"
+# https://reqres.in/api/users
+# id	1
+# email	"george.bluth@reqres.in"
+# first_name	"George"
 
 testing_data = [
     (1, "george.bluth@reqres.in", "George"),
@@ -16,6 +16,8 @@ testing_data = [
     (5, "charles.morris@reqres.in", "Charles")
 ]
 
+
+@pytest.mark.regression()
 @pytest.mark.parametrize("user_id, user_email, user_first_name", testing_data)
 def test_get_user_and_validate_data(user_id, user_email, user_first_name):
     response = requests.get(f"{users_api_url}/{user_id}")

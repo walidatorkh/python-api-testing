@@ -3,6 +3,7 @@ from assertpy import assert_that
 from colorama import init, Fore
 from cerberus import Validator
 from configurations import base_url, users_api_url
+import pytest
 
 # Initialize colorama
 init()
@@ -10,7 +11,7 @@ init()
 
 # Example usage
 # print(Fore.RED + "This text will be displayed in red.")
-
+@pytest.mark.regression()
 def test_register_user_schema_structure():
     schema = {
         "id": {"type": "number"},
@@ -47,6 +48,7 @@ def test_register_user_schema_structure():
 }'''
 
 
+@pytest.mark.regression()
 def test_get_user_schema_validation():
     schema = {
         "data": {

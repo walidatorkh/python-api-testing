@@ -2,6 +2,7 @@ import requests
 from assertpy import assert_that
 from colorama import init, Fore
 from configurations import base_url
+import pytest
 
 # Initialize colorama
 init()
@@ -9,7 +10,7 @@ init()
 
 # Example usage
 # print(Fore.RED + "This text will be displayed in red.")
-
+@pytest.mark.regression()
 def test_register_user_happy_flow():
     register_user_data = {
         "email": "eve.holt@reqres.in",
@@ -27,6 +28,7 @@ def test_register_user_happy_flow():
     assert_that(response_json).contains_key("token")
 
 
+@pytest.mark.regression()
 def test_register_user_missing_password():
     register_user_data = {
         "email": "eve.holt@reqres.in"

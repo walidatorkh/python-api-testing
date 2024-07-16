@@ -1,8 +1,10 @@
 import requests
 from assertpy import assert_that
 from configurations import users_api_url
+import pytest
 
 
+@pytest.mark.sanity()
 def test_get_user_status_code_and_ok():
     response = requests.get(f"{users_api_url}/2")
     assert response.status_code == 200
@@ -11,6 +13,7 @@ def test_get_user_status_code_and_ok():
     assert_that(response.ok).is_true()
 
 
+@pytest.mark.regression()
 def test_get_user_id():
     id = 2
     response = requests.get(f"{users_api_url}/{id}")
